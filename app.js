@@ -1,10 +1,6 @@
 const publicApiKey = "xDPpWs7_uAJ30fRuNhlf5tTxpTj8HZMdyYx-7VMJzWk";
 
-const firebaseConfig = {
-    messagingSenderId: "364415810958"
-};
-
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp();
 
 let messaging = firebase.messaging();
 
