@@ -16,6 +16,11 @@
   </div>
 
   <script type="module">
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js', {type: 'module'});
+    }
+
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js'
     import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging.js'
 
@@ -48,24 +53,23 @@
       });
     }
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/testfcm/firebase-messaging-sw.js')
-              .then(function(registration) {
-                console.log('Registration successful, scope is:', registration.scope);
-                getToken(registration, publicApiKey).then(function(currentToken){
-                  if (currentToken) {
-                    console.log("Firebase Token", currentToken);
-                    let tokenElement = document.getElementById("token");
-                    tokenElement.innerHTML = currentToken;
-                  } else {
-                    console.log("No registration token available. Request permission to generate one.");
-                  }
-                })
-              }).catch(function(err) {
-        console.log('Service worker registration failed, error:', err);
-      });
-    }
-
+    //if ('serviceWorker' in navigator) {
+    //  navigator.serviceWorker.register('/testfcm/firebase-messaging-sw.js')
+    //          .then(function(registration) {
+    //            console.log('Registration successful, scope is:', registration.scope);
+    //            getToken(registration, publicApiKey).then(function(currentToken){
+    //              if (currentToken) {
+    //                console.log("Firebase Token", currentToken);
+    //                let tokenElement = document.getElementById("token");
+    //                tokenElement.innerHTML = currentToken;
+    //              } else {
+    //                console.log("No registration token available. Request permission to generate one.");
+    //              }
+    //            })
+    //          }).catch(function(err) {
+    //    console.log('Service worker registration failed, error:', err);
+    //  });
+    //}
     requestPermission();
 
   </script>
