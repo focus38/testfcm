@@ -1,8 +1,6 @@
 importScripts('https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js');
 
-const publicApiKey = "xDPpWs7_uAJ30fRuNhlf5tTxpTj8HZMdyYx-7VMJzWk";
-
 const firebaseConfig = {
     apiKey: "AIzaSyBPa1xmcpKA5gCaVSC0gelN9YPSRbpB7TY",
     authDomain: "test-pushes-744ea.firebaseapp.com",
