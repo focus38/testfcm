@@ -13,18 +13,18 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-let messaging = firebase.messaging();
+const messaging = firebase.messaging();
 
-messaging.onMessage((payload) => {
-    console.log('Message received. ', payload);
-    let messageElement = document.getElementById("message");
-    let content = messageElement.innerHTML;
-    if (content !== "") {
-        content += "<br";
-    }
-    content += "<div>"+payload+"</div>";
-    messageElement.innerHTML = content;
-});
+//messaging.onMessage((payload) => {
+//    console.log('Message received. ', payload);
+//    let messageElement = document.getElementById("message");
+//    let content = messageElement.innerHTML;
+//    if (content !== "") {
+//        content += "<br";
+//    }
+//    content += "<div>"+payload+"</div>";
+//    messageElement.innerHTML = content;
+//});
 
 messaging.onBackgroundMessage((payload) => {
     console.log(
