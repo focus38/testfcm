@@ -42,6 +42,7 @@ function requestPermission() {
   Notification.requestPermission().then((permission) => {
     if (permission === 'granted') {
       console.log('Notification permission granted.');
+      getToken();
       return;
     }
     console.log('Unable to get permission to notify.');
