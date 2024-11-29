@@ -10,7 +10,9 @@ const firebaseConfig = {
     measurementId: "G-ER37Y39E4E"
 };
 
-let messaging = firebase.messaging(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+let messaging = firebase.messaging();
 
 function getToken() {
     messaging.getToken({ vapidKey: publicApiKey }).then((currentToken) => {
