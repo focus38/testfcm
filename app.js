@@ -1,6 +1,5 @@
-/*firebase daniel start*/
-import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js'
+import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js'
 
 const publicApiKey = "xDPpWs7_uAJ30fRuNhlf5tTxpTj8HZMdyYx-7VMJzWk";
 
