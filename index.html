@@ -15,16 +15,6 @@
     <div id="message"></div>
   </div>
 
-  <script type="text/javascript">
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/testfcm/firebase-messaging-sw.js')
-              .then(function(registration) {
-                console.log('Registration successful, scope is:', registration.scope);
-              }).catch(function(err) {
-        console.log('Service worker registration failed, error:', err);
-      });
-    }
-  </script>
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js'
     import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging.js'
@@ -60,7 +50,6 @@
       console.log("Message received. ", payload);
     });
 
-
     function requestPermission() {
       Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
@@ -68,6 +57,16 @@
           return;
         }
         console.log('Unable to get permission to notify.');
+      });
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/testfcm/firebase-messaging-sw.js')
+              .then(function(registration) {
+                console.log('Registration successful, scope is:', registration.scope);
+                getToken(registration, publicApiKey);
+              }).catch(function(err) {
+        console.log('Service worker registration failed, error:', err);
       });
     }
 
